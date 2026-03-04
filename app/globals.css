@@ -1,0 +1,1342 @@
+@import "tailwindcss";
+
+/* ─── Reset & Base ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sweet-pink: #ffb6c1;
+  --sweet-peach: #ffdab9;
+  --sweet-lavender: #e6e0f3;
+  --sweet-mint: #c8f7dc;
+  --sweet-cream: #fff8f0;
+  --sweet-rose: #ff6b9d;
+  --sweet-gold: #ffd700;
+  --sweet-white: #ffffff;
+  --sweet-text: #4a3728;
+  --sweet-text-light: #8b7355;
+  --sweet-border: #f0d4e0;
+  --sweet-shadow: rgba(255, 107, 157, 0.15);
+  --sweet-gradient: linear-gradient(135deg, #fff0f5 0%, #ffecd2 50%, #fcb7af 100%);
+  --sweet-gradient-alt: linear-gradient(135deg, #f8e8ff 0%, #ffe0f0 50%, #ffd4e0 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--sweet-gradient);
+  color: var(--sweet-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Home Page ─── */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sweet-gradient);
+}
+
+.home-hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-emoji-ring {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+}
+
+.home-center-emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  animation: home-pulse 2s ease-in-out infinite;
+}
+
+.home-orbit {
+  position: absolute;
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  animation: home-orbit 12s linear infinite;
+  animation-delay: calc(var(--i) * -2s);
+}
+
+@keyframes home-orbit {
+  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes home-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b9d, #c44dff, #ff6b9d);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: home-shimmer 3s linear infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes home-shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.home-tagline {
+  font-size: 1.1rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 2rem;
+}
+
+.home-cta {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--sweet-shadow);
+}
+
+.home-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+}
+
+/* ─── Sweets Page Scroll ─── */
+.sweetbox-page-scroll {
+  min-height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 4rem;
+}
+
+/* ─── SweetBox Container ─── */
+.sweetbox-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.sweetbox-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sweetbox-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b9d, #c44dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.sweetbox-tagline {
+  font-size: 0.95rem;
+  color: var(--sweet-text-light);
+}
+
+/* ─── Category Tabs ─── */
+.sweetbox-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.sweetbox-tab {
+  padding: 0.45rem 1.2rem;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--sweet-text-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.sweetbox-tab:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--sweet-text);
+}
+
+.sweetbox-tab-active {
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+  box-shadow: 0 2px 12px var(--sweet-shadow);
+}
+
+.sweetbox-tab-active:hover {
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+}
+
+/* ─── Counter ─── */
+.sweetbox-counter {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ─── Picker Grid ─── */
+.sweetbox-picker {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+}
+
+.sweetbox-picker-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-tap-highlight-color: transparent;
+  overflow: visible;
+}
+
+.sweetbox-picker-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--sweet-shadow);
+}
+
+.sweetbox-picker-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.75rem 0.25rem;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sweetbox-picker-btn:active {
+  transform: scale(0.95);
+}
+
+/* Remove button on selected items */
+.sweetbox-picker-remove {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 22px;
+  height: 22px;
+  background: #ff4d6d;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 77, 109, 0.3);
+  transition: transform 0.2s ease;
+  z-index: 5;
+  animation: sweetbox-badge-pop 0.25s ease forwards;
+}
+
+.sweetbox-picker-remove:hover {
+  background: #e63950;
+  transform: translateX(-50%) scale(1.15);
+}
+
+.sweetbox-picker-selected {
+  border-color: var(--sweet-rose);
+  background: rgba(255, 182, 193, 0.2);
+}
+
+.sweetbox-picker-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* ─── Item Images (replace emojis when image available) ─── */
+img.sweetbox-item-img {
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+img.sweetbox-item-img.sweetbox-picker-emoji {
+  width: 48px;
+  height: 48px;
+}
+
+img.sweetbox-item-img.sweetbox-grid-emoji {
+  width: 64px;
+  height: 64px;
+}
+
+img.sweetbox-item-img.sweetbox-modal-emoji {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+.sweetbox-picker-name {
+  font-size: 0.65rem;
+  color: var(--sweet-text-light);
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.sweetbox-picker-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 22px;
+  height: 22px;
+  background: var(--sweet-rose);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px var(--sweet-shadow);
+  animation: sweetbox-badge-pop 0.3s ease;
+}
+
+@keyframes sweetbox-badge-pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Hint ─── */
+.sweetbox-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* ─── Mini Preview ─── */
+.sweetbox-mini-preview {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+}
+
+.sweetbox-mini-label {
+  font-size: 0.8rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.sweetbox-mini-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sweetbox-mini-emoji {
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: sweetbox-bounce-in 0.4s ease both;
+}
+
+.sweetbox-mini-emoji img.sweetbox-item-img {
+  width: 36px;
+  height: 36px;
+}
+
+.sweetbox-gallery-emoji img.sweetbox-item-img {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes sweetbox-bounce-in {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ─── Actions ─── */
+.sweetbox-pick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sweetbox-next-btn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px var(--sweet-shadow);
+}
+
+.sweetbox-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 107, 157, 0.3);
+}
+
+.sweetbox-back-btn {
+  padding: 0.7rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--sweet-text);
+  border: 2px solid var(--sweet-border);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.sweetbox-back-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.sweetbox-gallery-btn {
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--sweet-text);
+  border: 2px solid var(--sweet-border);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.sweetbox-gallery-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.sweetbox-new-btn {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, #c44dff, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(196, 77, 255, 0.2);
+}
+
+.sweetbox-new-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(196, 77, 255, 0.3);
+}
+
+/* ─── Note Form ─── */
+.sweetbox-note-form {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px var(--sweet-shadow);
+}
+
+.sweetbox-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.sweetbox-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.sweetbox-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sweet-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.sweetbox-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--sweet-border);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  color: var(--sweet-text);
+  background: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.sweetbox-input:focus {
+  border-color: var(--sweet-rose);
+}
+
+.sweetbox-textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--sweet-border);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  color: var(--sweet-text);
+  background: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.2s;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.sweetbox-textarea:focus {
+  border-color: var(--sweet-rose);
+}
+
+.sweetbox-note-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* ─── Gift Box Display ─── */
+.sweetbox-gift-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sweetbox-animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Bouquet Controls ─── */
+.bouquet-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.bouquet-control-btn {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 12px var(--sweet-shadow);
+}
+
+.bouquet-control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--sweet-shadow);
+}
+
+.bouquet-control-outline {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--sweet-text);
+  border: 2px solid var(--sweet-border);
+  box-shadow: none;
+  backdrop-filter: blur(4px);
+}
+
+.bouquet-control-outline:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px var(--sweet-shadow);
+}
+
+/* ─── Bouquet Display (layered overlay) ─── */
+.bouquet-wrapper {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bouquet-wrapper.sweetbox-animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bouquet-stage {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom greenery — behind everything */
+.bouquet-bush-bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Items container — overlapping bunch on top of greenery */
+.bouquet-items {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  /* Negative spacing so items overlap like a real bouquet */
+  gap: 0;
+}
+
+.bouquet-items > * {
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top: -24px;
+}
+
+.bouquet-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.bouquet-item:hover {
+  z-index: 20;
+}
+
+.bouquet-item:hover .bouquet-item-visual {
+  transform: scale(1.15) !important;
+}
+
+/* Emoji rendering in bouquet */
+span.bouquet-item-visual {
+  font-size: 3rem;
+  display: block;
+  cursor: default;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Image rendering in bouquet */
+img.sweetbox-item-img.bouquet-item-visual {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+  transition: transform 0.2s ease;
+}
+
+/* Top greenery — in front, partially covering item stems */
+.bouquet-bush-top {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes sweetbox-pop-in {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  70% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.sweetbox-pop-in {
+  animation: sweetbox-pop-in 0.5s ease both;
+}
+
+@keyframes bouquet-fade-in {
+  0% { opacity: 0; scale: 0; }
+  70% { scale: 1.1; }
+  100% { opacity: 1; scale: 1; }
+}
+
+.bouquet-fade-in {
+  animation: bouquet-fade-in 0.5s ease both;
+}
+
+/* ─── Gift Display Row (bouquet + candy box side by side) ─── */
+.gift-display-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto 2rem;
+  /* Break out of the 640px container so both fit side by side */
+  width: calc(100vw - 2rem);
+  max-width: 960px;
+  margin-left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gift-display-row.sweetbox-animate-in {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* When inside gift-display-row, bouquet-wrapper doesn't need its own animation */
+.gift-display-row .bouquet-wrapper {
+  max-width: 480px;
+  margin: 0;
+  flex: 1 1 340px;
+}
+
+.bouquet-wrapper-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* ─── Candy Box (gift box with lid, ribbon & bow) ─── */
+.candy-box-wrapper {
+  flex: 0 0 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.candy-box {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ── Lid ── */
+.candy-box-lid {
+  position: relative;
+  width: 106%;
+  height: 54px;
+  background: linear-gradient(180deg, #d4627a 0%, #c0506a 50%, #b84560 100%);
+  border-radius: 18px 18px 6px 6px;
+  z-index: 3;
+  box-shadow:
+    0 4px 16px rgba(180, 60, 80, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Horizontal ribbon stripe across the lid */
+.candy-box-lid-stripe {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 14px;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg,
+    #e8a0b0 0%, #d4899c 40%, #c87d90 100%
+  );
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Bow ── */
+.candy-box-bow {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  z-index: 5;
+}
+
+.candy-box-bow-loop {
+  display: block;
+  width: 28px;
+  height: 22px;
+  background: linear-gradient(135deg, #e8899c, #d4728a);
+  border-radius: 50%;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.candy-box-bow-left {
+  transform: rotate(-25deg) translateX(4px);
+}
+
+.candy-box-bow-right {
+  transform: rotate(25deg) translateX(-4px);
+}
+
+.candy-box-bow-knot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #d06680, #c05570);
+  border-radius: 50%;
+  z-index: 6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 0 -5px;
+  align-self: flex-end;
+}
+
+/* ── Tray (interior) ── */
+.candy-box-tray {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  background: linear-gradient(180deg, #fdf0f3 0%, #fce4eb 100%);
+  border: 3px solid #d4899c;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  padding: 24px 16px 20px;
+  box-shadow:
+    inset 0 8px 20px rgba(200, 100, 120, 0.1),
+    inset 0 -4px 10px rgba(255, 255, 255, 0.4),
+    0 8px 28px rgba(180, 60, 80, 0.1);
+}
+
+/* Paper liner texture inside the tray */
+.candy-box-tray::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(200, 100, 120, 0.15);
+  border-radius: 0 0 14px 14px;
+  pointer-events: none;
+}
+
+.candy-box-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.candy-box-items > * {
+  margin-left: -4px;
+  margin-right: -4px;
+  margin-top: -6px;
+}
+
+.candy-box-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+.candy-box-item:hover {
+  z-index: 10;
+}
+
+.candy-box-item:hover .candy-box-item-visual {
+  transform: scale(1.2) !important;
+}
+
+span.candy-box-item-visual {
+  font-size: 3rem;
+  display: block;
+  cursor: default;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+img.sweetbox-item-img.candy-box-item-visual {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.2s ease;
+}
+
+/* ─── Responsive: stack on small screens ─── */
+@media (max-width: 700px) {
+  .gift-display-row {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .gift-display-row .bouquet-wrapper {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+  .candy-box-wrapper {
+    flex: 1 1 auto;
+    width: 90%;
+    max-width: 340px;
+  }
+}
+
+/* ─── Note Card ─── */
+.sweetbox-note-card {
+  background: var(--sweet-white);
+  border: 2px solid var(--sweet-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 0 auto 1.5rem;
+  max-width: 380px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.sweetbox-note-card:hover {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+.sweetbox-note-to {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sweet-rose);
+  margin-bottom: 0.5rem;
+}
+
+.sweetbox-note-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--sweet-text);
+  margin-bottom: 0.75rem;
+  white-space: pre-wrap;
+}
+
+.sweetbox-note-from {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sweet-text-light);
+  text-align: right;
+  font-style: italic;
+}
+
+/* ─── Share ─── */
+.sweetbox-share-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1.5rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #ffd700, #ffb347);
+  color: var(--sweet-text);
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+}
+
+.sweetbox-share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+.sweetbox-share-area {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.sweetbox-share-label {
+  font-size: 0.85rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.sweetbox-share-url-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sweetbox-share-input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--sweet-border);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--sweet-text);
+  background: rgba(255, 255, 255, 0.8);
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sweetbox-copy-btn {
+  padding: 0.6rem 1.2rem;
+  background: var(--sweet-rose);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sweetbox-copy-btn:hover {
+  background: #e05580;
+}
+
+/* ─── Box Actions ─── */
+.sweetbox-box-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Gallery ─── */
+.sweetbox-empty-gallery {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--sweet-text-light);
+  font-size: 1rem;
+}
+
+.sweetbox-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.sweetbox-gallery-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px solid var(--sweet-border);
+  border-radius: 20px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+.sweetbox-gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--sweet-shadow);
+  border-color: var(--sweet-rose);
+}
+
+.sweetbox-gallery-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.sweetbox-gallery-emoji {
+  font-size: 1.5rem;
+}
+
+.sweetbox-gallery-more {
+  font-size: 0.75rem;
+  color: var(--sweet-text-light);
+  display: flex;
+  align-items: center;
+}
+
+.sweetbox-gallery-recipient {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sweet-text);
+  margin-bottom: 0.2rem;
+}
+
+.sweetbox-gallery-date {
+  font-size: 0.7rem;
+  color: var(--sweet-text-light);
+}
+
+/* ─── Inspect Modal ─── */
+.sweetbox-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+  animation: sweetbox-fade-in 0.2s ease;
+}
+
+@keyframes sweetbox-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sweetbox-modal {
+  background: var(--sweet-white);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: sweetbox-modal-pop 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes sweetbox-modal-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.sweetbox-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--sweet-text-light);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sweetbox-modal-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sweetbox-modal-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sweetbox-modal-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sweet-text);
+  margin-bottom: 0.3rem;
+}
+
+.sweetbox-modal-meaning {
+  font-size: 0.9rem;
+  color: var(--sweet-rose);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.sweetbox-modal-flavor {
+  font-size: 0.8rem;
+  color: var(--sweet-text-light);
+  margin-bottom: 1rem;
+}
+
+.sweetbox-modal-add {
+  padding: 0.7rem 2rem;
+  background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sweetbox-modal-add:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--sweet-shadow);
+}
+
+.sweetbox-modal-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── Mobile Responsive ─── */
+@media (max-width: 480px) {
+  .sweetbox-title {
+    font-size: 1.75rem;
+  }
+
+  .sweetbox-picker {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .sweetbox-picker-emoji {
+    font-size: 1.7rem;
+  }
+
+  img.sweetbox-item-img.sweetbox-picker-emoji {
+    width: 38px;
+    height: 38px;
+  }
+
+  .sweetbox-picker-name {
+    font-size: 0.6rem;
+  }
+
+  .bouquet-wrapper {
+    max-width: 340px;
+  }
+
+  .bouquet-stage {
+    min-height: 300px;
+  }
+
+  .bouquet-items {
+    width: 220px;
+  }
+
+  span.bouquet-item-visual {
+    font-size: 2.2rem;
+  }
+
+  img.sweetbox-item-img.bouquet-item-visual {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bouquet-items > * {
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-top: -16px;
+  }
+
+  span.candy-box-item-visual {
+    font-size: 2.4rem;
+  }
+
+  img.sweetbox-item-img.candy-box-item-visual {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sweetbox-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .home-emoji-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .home-center-emoji {
+    font-size: 3rem;
+  }
+
+  .home-orbit {
+    font-size: 1.5rem;
+  }
+
+  .sweetbox-note-actions {
+    flex-direction: column;
+  }
+
+  .sweetbox-box-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .sweetbox-picker {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
